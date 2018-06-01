@@ -6,6 +6,20 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+module Projects
+  class Application < Rails::Application
+    config.load_defaults 5.1
+
+    config.generators do |g|
+      g.test_framework :rspec,
+                       fixtures: true,
+                       view_specs: true,
+                       helper_specs: true,
+                       routing_specs: true
+    end
+  end
+end
+
 module SampleApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
