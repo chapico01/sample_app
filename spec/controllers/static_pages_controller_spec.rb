@@ -4,7 +4,8 @@ require 'rails_helper'
 RSpec.describe StaticPagesController, type: :controller do
 
   before do
-    @base_title = "Ruby on Rails Tutorial Sample App"
+    #@base_title = "Ruby on Rails Tutorial Sample App"
+    @base_title = 'Ruby on Rails Tutorial Sample App'
   end
   render_views
 
@@ -17,10 +18,11 @@ RSpec.describe StaticPagesController, type: :controller do
     end
 
     it 'shoud get home' do
-      #visit '/static_pages/home'
+      #visit '/staic_pages/home'
       get :home
       expect(response).to be_success
-      assert_select "title", "Home | #{@base_title}"
+      #assert_select "title", "#{@base_title}"
+      assert_select "title", "Ruby on Rails Tutorial Sample App"
     end
     it 'shoud get help' do
       #visit '/static_pages/help'
