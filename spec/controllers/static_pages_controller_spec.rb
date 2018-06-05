@@ -1,5 +1,5 @@
 require 'rails_helper'
-#require 'spec_helper'
+require 'spec_helper'
 
 RSpec.describe StaticPagesController, type: :controller do
 
@@ -10,37 +10,27 @@ RSpec.describe StaticPagesController, type: :controller do
   render_views
 
   describe "get access" do
-    it 'root path test' do
-      redirect_to root_path
-      expect(response).to be_success
-#      assert_select "title", "Home | #{@base_title}"
-
-    end
-
     it 'shoud get home' do
-      #visit '/staic_pages/home'
-      get :home
+      visit root_path
       expect(response).to be_success
-      #assert_select "title", "#{@base_title}"
-      assert_select "title", "Ruby on Rails Tutorial Sample App"
+      expect(page).to have_title("#{@base_title}")
     end
     it 'shoud get help' do
-      #visit '/static_pages/help'
-      get :help
+      visit help_path
       expect(response).to be_success
-      assert_select "title", "Help | #{@base_title}"
+      expect(page).to have_title("Help | #{@base_title}")
     end
     it 'shoud get about' do
-      #visit '/static_pages/about'
-      get :about
+      visit about_path
       expect(response).to be_success
-      assert_select "title", "About | #{@base_title}"
+      expect(page).to have_title("About | #{@base_title}")
     end
     it 'shoud get contact' do
-      #visit '/static_pages/about'
-      get :contact
+      #get :contact
+      visit contact_path
       expect(response).to be_success
-      assert_select "title", "Contact | #{@base_title}"
+      #assert_select "title", "Contact | #{@base_title}"
+      expect(page).to have_title("Contact | #{@base_title}")
     end
 
   end
