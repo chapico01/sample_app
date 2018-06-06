@@ -15,7 +15,7 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
 
-  config.include Rails.application.routes.url_helpers
+  #config.include Rails.application.routes.url_helpers
   # config.before(:each) do
   #   @request.host = "localhost:3000"
   # end
